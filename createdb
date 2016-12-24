@@ -1,0 +1,10 @@
+#!/usr/bin/expect
+
+spawn python manage.py createdb
+set timeout 20
+expect "Please enter the domain and optional port in the format 'domain:port'." {send "\r"}
+expect "Username" {send "\r"}
+expect "Email address" {send "lansoulot@gmail.com\r"}
+expect "Password:" {send "lans0601\r"}
+expect "Password (again):" {send "lans0601\r"}
+expect "Would you like to install some initial demo pages" {send "yes\r"}
