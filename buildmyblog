@@ -8,16 +8,3 @@ wget https://bootstrap.pypa.io/get-pip.py
 python get-pip.py
 pip install mezzanine
 mezzanine-project myblog
-export LC_ALL=en_US.UTF-8
-cd myblog
-
-/usr/bin/expect << EOF
-
-spawn python manage.py createdb
-set timeout 20
-expect "Please enter the domain and optional port in the format 'domain:port'." {send "\r"}
-expect "Username" {send "\r"}
-expect "Email address" {send "lansoulot@gmail.com\r"}
-expect "assword" {send "lans0601\r"}
-expect "assword (again)" {send "lans0601\r"}
-expect "install some initial demo pages" {send "yes\r"}

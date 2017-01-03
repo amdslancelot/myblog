@@ -1,5 +1,9 @@
-#!/usr/bin/expect
+#!/usr/bin/bash
 
+export LC_ALL=en_US.UTF-8
+cd myblog
+
+/usr/bin/expect << EOF
 spawn python manage.py createdb
 set timeout 20
 expect "Please enter the domain and optional port in the format 'domain:port'." {send "\r"}
