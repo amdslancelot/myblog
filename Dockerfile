@@ -4,7 +4,8 @@ COPY ./buildmyblog ./
 RUN ./buildmyblog
 COPY ./createdb ./
 RUN ./createdb
-RUN cd myblog; python manage.py runserver &
-CMD ["/bin/bash"]
-#CMD ["python", "manage.py", "runserver"]
-
+CMD a=$(hostname -I); \
+b=\"${a%%\ *}\"; \
+echo $b; \
+sed -i "s|ALLOWED_HOSTS = \[\]|ALLOWED_HOSTS = \[\\$(echo $b)\]|g" /myblog/myblog/settings.py \
+cd myblog; python manage.py runserver 0.0.0.0:8000 &
