@@ -1,9 +1,6 @@
-set ip "172.17.0.2"
-set port "8000"
-
-yum install -y wget
-yum install -y vim
-yum install -y expect
+yum update -y && yum install -y wget \
+                                vim \
+                                expect
 wget https://bootstrap.pypa.io/get-pip.py
 python get-pip.py
 pip install mezzanine
