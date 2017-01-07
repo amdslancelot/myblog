@@ -1,0 +1,2 @@
+usage:
+docker run -d -p <port>:8000 <IMAGE_NAME>
